@@ -1,0 +1,37 @@
+---
+driver:
+  name: ec2
+  some_config: true
+  instance_type: c5d.2xlarge
+  security_group_ids: sg-00b5070a83f0ce88b
+  region: ap-northeast-1
+  skip_cost_warning: true
+  associate_public_ip: true
+
+transport:
+
+provisioner:
+  name: chef_zero
+  product_name: chef
+  product_version: 17.10.0
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: debian-10
+    driver:
+      tags: { "Name": "raspi_setup-TestKitchen" }
+
+suites:
+  - name: default
+    run_list:
+      - recipe[raspi_setup::default]    
+    verifier:
+      inspec_tests:
+        - compliance/profiles/validation_tests
+    attributes: { 
+     audit: { reporter: 'cli' },
+      environment: "production"
+     }
