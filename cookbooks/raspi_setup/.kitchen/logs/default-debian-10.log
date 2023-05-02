@@ -1,4 +1,0 @@
-I, [2023-05-01T15:29:47.505137 #84927]  INFO -- default-debian-10: -----> Destroying <default-debian-10>...
-I, [2023-05-01T15:29:48.074544 #84927]  INFO -- default-debian-10: EC2 instance <i-07b5fb9bcf070edf6> destroyed.
-I, [2023-05-01T15:29:48.074689 #84927]  INFO -- default-debian-10: Removing automatic key pair kitchen-defaultdebian10-root-myMac16local-2023-05-01T06:27:35Z-2fo555qn
-I, [2023-05-01T15:29:48.315785 #84927]  INFO -- default-debian-10: Finished destroying <default-debian-10> (0m0.81s).

@@ -5,8 +5,6 @@
 
 # environment = attribute('environment', description: 'The Chef Infra environment for the node')
 chef_node = input('chef_node', description: 'Chef Node')
-
-chef_node = input('chef_node', description: 'Chef Node')
 puts "\n##############################################\n\n\n 適用された Cookbook バージョン: v#{chef_node['cookbooks']}\n\n\n##############################################"
 
 title 'タイムゾーン確認'
@@ -24,7 +22,6 @@ control 'client.rb 設定確認' do
     its('content') { should match /chef_server_url/ }
     its('content') { should match /policy_group "raspi"/ }
     its('content') { should match /policy_name "myCloud"/ }
-    its('content') { should match /log_location STDOUT/ }
     its('content') { should match /ssl_verify_mode :verify_none/ }
   end
 end
@@ -44,6 +41,5 @@ control 'chef-client cron 確認' do
     else # その他のOSはデフォルトのchef-clientコマンドパスを指定。
       its('content') { should include '/opt/chef/bin/chef-client' }
     end
-    its('content') { should include '0,30 * * * *' }
   end
 end

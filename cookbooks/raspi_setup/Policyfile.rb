@@ -14,5 +14,3 @@ run_list 'raspi_setup::default'
 
 # Specify a custom source for a single cookbook:
 cookbook 'raspi_setup', path: '.'
-cookbook 'chef_client_updater', '~> 3.12.3', :supermarket
-

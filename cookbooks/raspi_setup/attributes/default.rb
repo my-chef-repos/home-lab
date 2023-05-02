@@ -16,13 +16,5 @@ default['raspi_setup']['org_validator_name'] = 'home-lab-validator.pem'
 default['raspi_setup']['policy_name'] = 'myCloud'
 default['raspi_setup']['policy_group'] = 'raspi'
 
-# Specify chef-client version
-default['raspi_setup']['client_updater']['version'] = '17.10.0'
-default['raspi_setup']['client_updater']['channel'] = 'stable'
-
 # Specify chef-client cron interval settings
-default['chef_client_cron']['minute'] = '0,30'
-default['chef_client_cron']['splay'] = 300
-
-# Invoke the Compliance Phase
-default['audit']['compliance_phase'] = true
+default['chef_client_cron']['hour'] = '0,12'
