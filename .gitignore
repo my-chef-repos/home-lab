@@ -30,7 +30,7 @@ nodes
 **/.terraform.lock.hcl
 metadata.json
 **/Policyfile.lock.json
-.kitchen
+**/.kitchen
 *.lock.json*
 
 STDOUT
