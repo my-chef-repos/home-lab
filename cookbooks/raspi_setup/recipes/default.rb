@@ -27,7 +27,7 @@ chef_client_config 'client.rb' do
   policy_group "#{node['raspi_setup']['policy_group']}"
   ssl_verify_mode :verify_none
   additional_config <<~CONFIG
-  validation_client_name  'home-lab-validator.pem'
+  validation_client_name  'home-lab-validator'
   validation_key          '/etc/chef/home-lab-validator.pem'
   CONFIG
 end
