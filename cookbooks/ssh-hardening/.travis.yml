@@ -1,0 +1,38 @@
+---
+language: ruby
+bundler_args: "--without development"
+cache: bundler
+
+services:
+- docker
+
+rvm: 2.6.3
+
+env:
+ - INSTANCE=ubuntu-1604
+ - INSTANCE=ubuntu-1604 CHEF_VERSION=14.13.11
+ - INSTANCE=ubuntu-1804
+ - INSTANCE=centos-6
+ - INSTANCE=centos-7
+ - INSTANCE=centos-7 CHEF_VERSION=14.13.11
+ - INSTANCE=centos-8
+ - INSTANCE=oracle-6
+ - INSTANCE=oracle-7
+ - INSTANCE=debian-8
+ - INSTANCE=debian-9
+ - INSTANCE=debian-10
+ - INSTANCE=fedora-29
+ - INSTANCE=fedora-30
+ - INSTANCE=opensuse-42
+ - INSTANCE=opensuse-42 CHEF_VERSION=14.13.11
+ - INSTANCE=amazonlinux-1
+ - INSTANCE=amazonlinux-2
+
+script:
+  -  bundle exec rake kitchen KITCHEN_LOCAL_YAML=.kitchen.dokken.yml
+
+matrix:
+  include:
+    - env: UNIT_AND_LINT=1
+      script:
+        - bundle exec rake lint spec
