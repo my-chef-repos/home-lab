@@ -11,7 +11,7 @@ default_source :chef_server, 'https://automate/organizations/home-lab'
 
 # run_list: chef-client will run these recipes in the order specified.
 run_list 'raspi_setup::default'
-cookbook 'raspi_setup', '2.0.0'
+cookbook 'raspi_setup', '2.0.1'
 
 # Attributes
 default['chef_client_cron']['hour'] = '0,12'
