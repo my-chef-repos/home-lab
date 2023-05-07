@@ -7,7 +7,7 @@
 chef_node = input('chef_node', description: 'Chef Node')
 puts "\n##############################################\n\n\n 適用された Cookbook バージョン: v#{chef_node['cookbooks']}\n\n\n##############################################"
 
-title 'タイムゾーン確認'
+title 'TimeZoneがAsia/Tokyoであること'
 control 'タイムゾーン確認' do
   describe bash('timedatectl status | grep Tokyo') do
     its('stdout') { should include 'Time zone: Asia/Tokyo' }
@@ -16,7 +16,7 @@ control 'タイムゾーン確認' do
   end
 end
 
-control 'client.rb 設定確認' do
+control 'client.rb が正しく設定されていること' do
   describe file('/etc/chef/client.rb') do
     its('content') { should match /chef_license "accept"/ }
     its('content') { should match /chef_server_url/ }
@@ -26,7 +26,7 @@ control 'client.rb 設定確認' do
   end
 end
 
-control 'chef-client cron 確認' do
+control 'chef-client cron が設定していること' do
   describe service('cron') do
     it { should be_enabled }
     it { should be_running }

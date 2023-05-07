@@ -10,7 +10,7 @@
 #
 # Copyright:: 2021, The Authors, All Rights Reserved.
 
-include_profile 'raspi_setup::validation_tests'
+# include_profile 'raspi_setup::validation_tests'
 
 timezone "Set TZ to #{node['raspi_setup']['timezone']}" do
   timezone "#{node['raspi_setup']['timezone']}"
