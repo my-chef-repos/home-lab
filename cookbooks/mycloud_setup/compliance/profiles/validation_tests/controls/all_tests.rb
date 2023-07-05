@@ -1,4 +1,4 @@
-# InSpec test for recipe raspi_setup::client_setup.rb
+# InSpec test for recipe mycloud_setup::client_setup.rb
 
 # The InSpec reference, with examples and extensive documentation, can be
 # found at https://docs.chef.io/inspec/resources/

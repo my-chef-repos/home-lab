@@ -1,30 +1,26 @@
 #
-# Cookbook:: raspi_setup
+# Cookbook:: mycloud_setup
 # Recipe:: default
 #
 # Copyright:: 2023, The Authors, All Rights Reserved.
 
 #
-# Cookbook:: raspi_setup
+# Cookbook:: mycloud_setup
 # Recipe:: client_setup.rb
 #
 # Copyright:: 2021, The Authors, All Rights Reserved.
 
-# include_profile 'raspi_setup::validation_tests'
+include_profile 'mycloud_setup::validation_tests'
 
-timezone "Set TZ to #{node['raspi_setup']['timezone']}" do
-  timezone "#{node['raspi_setup']['timezone']}"
+timezone "Set TZ to #{node['mycloud_setup']['timezone']}" do
+  timezone "#{node['mycloud_setup']['timezone']}"
 end
 
-###########
-# Setup client.rb with Chef Server access credentials
-###########
-
 chef_client_config 'client.rb' do
-  chef_server_url "https://#{node['raspi_setup']['chef_server']['fqdn']}/organizations/#{node['raspi_setup']['org_name']}"
+  chef_server_url "https://#{node['mycloud_setup']['chef_server']['fqdn']}/organizations/#{node['mycloud_setup']['org_name']}"
   chef_license 'accept'
-  policy_name "#{node['raspi_setup']['policy_name']}"
-  policy_group "#{node['raspi_setup']['policy_group']}"
+  policy_name "#{node['mycloud_setup']['policy_name']}"
+  policy_group "#{node['mycloud_setup']['policy_group']}"
   ssl_verify_mode :verify_none
   additional_config <<~CONFIG
   validation_client_name  'home-lab-validator'

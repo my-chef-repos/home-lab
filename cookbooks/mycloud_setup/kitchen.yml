@@ -22,12 +22,12 @@ verifier:
 platforms:
   - name: debian-10
     driver:
-      tags: { "Name": "raspi_setup-TestKitchen" }
+      tags: { "Name": "mycloud_setup-TestKitchen" }
 
 suites:
   - name: default
     run_list:
-      - recipe[raspi_setup::default]    
+      - recipe[mycloud_setup::default]    
     verifier:
       inspec_tests:
         - compliance/profiles/validation_tests
